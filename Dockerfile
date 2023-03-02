@@ -2,6 +2,7 @@
 FROM ubuntu:18.04
 
 RUN apt update && \
+    apt upgrade -y && \
     apt install -y gcc g++ binutils patch bzip2 flex make && \
     apt install -y gettext pkg-config unzip zlib1g-dev libc6-dev subversion && \
     apt install -y libncurses5-dev gawk sharutils curl libxml-parser-perl python-yaml && \
@@ -12,7 +13,8 @@ RUN apt update && \
 
 RUN dpkg --add-architecture i386 && \
     apt update && \
-    apt install -y libgl1-mesa-dri:i386
+    apt install -y libgl1-mesa-dri:i386 && \
+    apt install wget curl git -y
 
 ARG DEV_USER
 ENV DEV_USER=${DEV_USER}
