@@ -20,7 +20,7 @@ ARG DEV_USER
 ENV DEV_USER=${DEV_USER}
 RUN useradd -ms /bin/bash ${DEV_USER}
 USER ${DEV_USER}
-WORKDIR /home/${DEV_USER}
+WORKDIR /home/${DEV_USER}/work
 CMD ["/bin/bash"]
 #################
 

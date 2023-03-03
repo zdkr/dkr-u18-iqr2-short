@@ -7,12 +7,11 @@ $(V).SILENT:
 export IMG=u18iqr2
 export CONT=u18iqr2c
 export HOST=u18iqr2h
-export VOLP=/home/${USER}/zgit/${IMG}
+export VOLP=${PWD}
 export DEV_USER=dev
-export VER=v3.0.0
+export VER=v4.0.0
 
 ######################################################################
-export DOCKER_ID=yxar
 export DOCKER_PATH=${DOCKER_ID}/${IMG}:${VER}
 
 ######################################################################
@@ -28,11 +27,10 @@ push: tag
 	docker login -u="$${DOCKER_ID}" -p="$${DOCKER_PASS}"
 	docker image push $${DOCKER_PATH}
 
-#--network host needed if we do not have non-root-user!
 run: stop
-	mkdir -p $${VOLP}
+	#mkdir -p $${VOLP}
 	docker run -it --rm \
-	-v $${VOLP}:/home/$${DEV_USER} \
+	-v $${VOLP}:/home/$${DEV_USER}/work \
 	-h $${HOST} \
 	--name $${CONT} $${DOCKER_PATH}
 
