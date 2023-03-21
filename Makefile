@@ -9,7 +9,7 @@ export CONT=u18iqr2c
 export HOST=u18iqr2h
 export VOLP=${PWD}
 export DEV_USER=dev
-export VER=v5.0.0
+export VER=v6.0.0
 
 ######################################################################
 export DOCKER_PATH=${DOCKER_ID}/${IMG}:${VER}

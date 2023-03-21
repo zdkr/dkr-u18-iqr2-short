@@ -15,7 +15,7 @@ RUN apt update && \
 RUN dpkg --add-architecture i386 && \
     apt update && \
     apt install -y libgl1-mesa-dri:i386 && \
-    apt install wget curl git -y && \
+    apt install wget curl git zip -y && \
     rm --force --recursive /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ARG DEV_USER
