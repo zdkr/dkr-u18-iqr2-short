@@ -9,7 +9,7 @@ export CONT=u18iqr2c
 export HOST=u18iqr2h
 export VOLP=${PWD}
 export DEV_USER=dev
-export VER=v4.0.0
+export VER=v5.0.0
 
 ######################################################################
 export DOCKER_PATH=${DOCKER_ID}/${IMG}:${VER}
@@ -24,7 +24,8 @@ tag:
 	docker tag $${IMG}:latest $${DOCKER_PATH}
 
 push: tag
-	docker login -u="$${DOCKER_ID}" -p="$${DOCKER_PASS}"
+	#docker login -u="$${DOCKER_ID}" -p="$${DOCKER_PASS}"
+	echo "$${DOCKER_PASS}" | docker login -u="$${DOCKER_ID}" --password-stdin
 	docker image push $${DOCKER_PATH}
 
 run: stop

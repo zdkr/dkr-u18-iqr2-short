@@ -38,3 +38,26 @@ max@m211:/mnt/170C24895C0DB089/zGit/zdkr/dkr-u18-iqr2-short$
 
 ```
 
+
+# TODO
+build red-line
+docker build WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+possible solution
+
+Dockerfile: Use "apt-get" instead of "apt"
+apt-get may be considered as lower-level and "back-end", and support other APT-based tools. apt is designed for end-users (human) and its output may be changed between versions. Note from apt(8): The `apt` command is meant to be pleasant for end users and does not need to be backward compatible like apt-get
+
+
+build-red-line: 
+debconf: delaying package configuration, since apt-utils is not installed
+possible soultion
+apt-get install -y --no-install-recommends apt-utils
+
+
+another ToDO
+WARNING! Your password will be stored unencrypted in /home/max/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+
+
